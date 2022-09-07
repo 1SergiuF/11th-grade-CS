@@ -29,7 +29,7 @@ int main()
         Compile-time, pe baza sablonului de functie,
         compilatorul genereaza 5 functii:
         void Scrie(int), void Scrie(double), void Scrie(char),
-        void Scrie(const char*),  void Scrie(Bancnota)
+        void Scrie(const char*),  void Scrie(Bill)
     */
 
     Scrie(10);      // void Scrie(int)
