@@ -1,39 +1,40 @@
 /*
-    Generarea Permutarilor unui sir numeric
+    Generarea Permutarilor literelor
+    unui cuvant (ANAGRAME) - toate literele cuvantului sunt distincte
     in ordine crescator lexicografica
 */
 
 #include <fstream>
+#include <cstring>
 #include <algorithm>
 using namespace std;
 
-ifstream fin("perm_sir.in");
-ofstream fout("perm_sir.out");
+ifstream fin("anagrame.in");
+ofstream fout("anagrame.out");
 
+char a[15];
 int x[15];
-int a[15];  // sirul care trebuie permutat
-bool pus[15];   // generam pozitii din sirul a[]
+bool pus[15];
 int n;
 int nrsol;
 
-void Perm(int k);   // k = pozitia curenta in sir
+void Anagrame(int k);
 void ScrieSol();
 
 int main()
 {
-    fin >> n;
-    for (int i = 1; i <= n; ++i)
-        fin >> a[i];
+    fin.getline(a + 1, 16);
+    n = strlen(a + 1);
 
     sort(a + 1, a + n + 1);
-    Perm(1);
-
+    Anagrame(1);
+    
     fout << nrsol << " solutii !";
 
     return 0;
 }
 
-void Perm(int k)
+void Anagrame(int k)
 {
     if (k > n)
     {
@@ -47,7 +48,7 @@ void Perm(int k)
         if (!pus[i])
         {
             pus[i] = true;
-            Perm(k + 1);
+            Anagrame(k + 1);
             pus[i] = false;
         }
     }
@@ -57,6 +58,6 @@ void ScrieSol()
 {
     ++nrsol;
     for (int i = 1; i <= n; ++i)
-        fout << a[x[i]] << ' ';
+        fout << a[x[i]];
     fout << '\n';
 }
