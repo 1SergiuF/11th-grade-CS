@@ -1,6 +1,5 @@
 /*
-    Generarea Permutarilor literelor
-    unui cuvant (ANAGRAME) - toate literele cuvantului sunt distincte
+    Generarea Anagramelor DISTINCTE
     in ordine crescator lexicografica
 */
 
@@ -9,26 +8,25 @@
 #include <algorithm>
 using namespace std;
 
-ifstream fin("anagrame.in");
-ofstream fout("anagrame.out");
+ifstream fin("anagrame_dist.in");
+ofstream fout("anagrame_dist.out");
 
 char a[15]; // cuvantul
 int x[15];
-bool pus[15];
 int n;
 int nrsol;
 
+bool Ok(int k);
 void Anagrame(int k);
 void ScrieSol();
 
 int main()
 {
-    fin.getline(a + 1, 16); // a[0] a[1] a[2] ... a[n - 1]
+    fin.getline(a + 1, 16);
     n = strlen(a + 1);
-
     sort(a + 1, a + n + 1);
-    Anagrame(1);
 
+    Anagrame(1);
     fout << nrsol << " solutii !";
 
     return 0;
@@ -45,12 +43,8 @@ void Anagrame(int k)
     for (int i = 1; i <= n; ++i)
     {
         x[k] = i;
-        if (!pus[i])
-        {
-            pus[i] = true;
+        if (Ok(k))
             Anagrame(k + 1);
-            pus[i] = false;
-        }
     }
 }
 
@@ -60,4 +54,14 @@ void ScrieSol()
     for (int i = 1; i <= n; ++i)
         fout << a[x[i]];
     fout << '\n';
+}
+
+bool Ok(int k)
+{
+    for (int i = 1; i < k; ++i)
+        if ((x[k] == x[i]) ||
+            (a[x[k]] == a[x[i]] && x[i] > x[k]))
+                return false;
+
+    return true;
 }
