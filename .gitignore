@@ -3,3 +3,9 @@ in & out files/
 exe files/
 .vs/
 QT creator projects/
+Dinamica/
+Vector/x64/
+Vector/Vector.sln
+Vector/Vector.vcxproj
+Vector/Vector.vcxproj.filters
+Vector/Vector.vcxproj.user
