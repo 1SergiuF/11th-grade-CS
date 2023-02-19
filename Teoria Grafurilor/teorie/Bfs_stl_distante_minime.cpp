@@ -55,7 +55,7 @@ void Bfs(int x)
 {
     queue<int> Q;   // coada vida
     v[x] = true;
-    d[x] = 0;   // pt ca x este radaina arborelui BFS
+    d[x] = 0;   // pt ca x este radacina arborelui BFS
     t[x] = 0;
     Q.push(x);
 
