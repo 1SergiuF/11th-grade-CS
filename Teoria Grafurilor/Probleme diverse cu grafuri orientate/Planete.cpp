@@ -1,39 +1,60 @@
 #include <iostream>
+#include <utility>
+#include <vector>
 using namespace std;
 
-const int N = 200001;
-int a[N];
-bool f[N];
+typedef vector<bool> VB;
+typedef vector<int> VI;
+typedef vector<VI> VVI;
+
+VB v;
+VI data;
+VVI G;
 int n;
 int cnt;
 
-void Teleporteaza(int x, int poz);
+inline void Dfs(int x);
+
 int main()
 {
-    cin >> n;
-    for (int i = 1; i <= n; ++i)
-    {
-        cin >> a[i];
-        f[a[i]] = true;
-    }
-
-    for (int i = 1; i <= n; ++i)
-    {
-        cnt = 1;
-        if (f[i])
-        {
-            Teleporteaza(i, i);
-            cout << cnt << ' ';
-        }
-
-        else
-            cout << i - 1 << ' ';
-    }
+	cin >> n;
+	
+	G    = VVI(n + 1);
+	data = VI(n + 1);
+	
+	int x;
+	for (int i = 1; i <= n; ++i)
+	{
+		cin >> x;
+		data[i] = x;
+	}
+	
+	for (int i = 1; i <= n; ++i)
+		G[i].push_back(data[data[i]]);
+		
+	
+	for (int i = 1; i <= n; ++i)
+	{
+		cnt = 0;
+		v = VB(n + 1);
+		Dfs(i);
+	}
+		
+	return 0;
 }
 
-void Teleporteaza(int x, int poz)
+inline void Dfs(int x)
 {
-    if (a[x] == poz) return;
-    ++cnt;
-    return Teleporteaza(a[x], poz);
+	if (v[x])
+	{
+		cout << cnt << ' ';
+		return;
+	}
+	
+	v[x] = true;
+	for (auto const& y : G[x])
+	{
+		++cnt;
+		Dfs(y);
+	}
 }
