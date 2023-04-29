@@ -1,0 +1,17 @@
+C:\Users\sergi\OneDrive\Desktop\Subiecte OTI\AplicatieFreeBook\bin\Debug\FreeBook.mdf
+C:\Users\sergi\OneDrive\Desktop\Subiecte OTI\AplicatieFreeBook\bin\Debug\FreeBook_log.ldf
+C:\Users\sergi\OneDrive\Desktop\Subiecte OTI\AplicatieFreeBook\bin\Debug\AplicatieFreeBook.exe.config
+C:\Users\sergi\OneDrive\Desktop\Subiecte OTI\AplicatieFreeBook\bin\Debug\AplicatieFreeBook.exe
+C:\Users\sergi\OneDrive\Desktop\Subiecte OTI\AplicatieFreeBook\bin\Debug\AplicatieFreeBook.pdb
+C:\Users\sergi\OneDrive\Desktop\Subiecte OTI\AplicatieFreeBook\obj\Debug\AplicatieFreeBook.csproj.AssemblyReference.cache
+C:\Users\sergi\OneDrive\Desktop\Subiecte OTI\AplicatieFreeBook\obj\Debug\AplicatieFreeBook.csproj.SuggestedBindingRedirects.cache
+C:\Users\sergi\OneDrive\Desktop\Subiecte OTI\AplicatieFreeBook\obj\Debug\AplicatieFreeBook.Properties.Resources.resources
+C:\Users\sergi\OneDrive\Desktop\Subiecte OTI\AplicatieFreeBook\obj\Debug\AplicatieFreeBook.csproj.GenerateResource.cache
+C:\Users\sergi\OneDrive\Desktop\Subiecte OTI\AplicatieFreeBook\obj\Debug\AplicatieFreeBook.csproj.CoreCompileInputs.cache
+C:\Users\sergi\OneDrive\Desktop\Subiecte OTI\AplicatieFreeBook\obj\Debug\AplicatieFreeBook.exe
+C:\Users\sergi\OneDrive\Desktop\Subiecte OTI\AplicatieFreeBook\obj\Debug\AplicatieFreeBook.pdb
+C:\Users\sergi\OneDrive\Desktop\Subiecte OTI\AplicatieFreeBook\obj\Debug\AplicatieFreeBook.FreeBookHomeForm.resources
+C:\Users\sergi\OneDrive\Desktop\Subiecte OTI\AplicatieFreeBook\obj\Debug\AplicatieFreeBook.ContFreeBook.resources
+C:\Users\sergi\OneDrive\Desktop\Subiecte OTI\AplicatieFreeBook\obj\Debug\AplicatieFreeBook.LogareFreeBookForm.resources
+C:\Users\sergi\OneDrive\Desktop\Subiecte OTI\AplicatieFreeBook\obj\Debug\AplicatieFreeBook.MeniuFreeBookForm.resources
+C:\Users\sergi\OneDrive\Desktop\Subiecte OTI\AplicatieFreeBook\obj\Debug\AplicatieFreeBook.AfiseazaCarteForm.resources
