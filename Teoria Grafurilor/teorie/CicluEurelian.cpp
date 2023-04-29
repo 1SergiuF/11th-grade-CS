@@ -1,5 +1,5 @@
 /**
- Determionarea unui ciclu eulerianzs
+ Determionarea unui ciclu eulerian
 
 */
 #include <fstream>
