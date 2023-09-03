@@ -30,17 +30,17 @@
         {
             this.lblWelcome = new System.Windows.Forms.Label();
             this.dgvGhiceste = new System.Windows.Forms.DataGridView();
+            this.colNumeG = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colEmailG = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colPunctajG = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvSarpe = new System.Windows.Forms.DataGridView();
+            this.colNumeS = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colEmailS = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colPunctajS = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.btnGhiceste = new System.Windows.Forms.Button();
             this.btnSarpe = new System.Windows.Forms.Button();
-            this.colNumeG = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colEmailG = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colPunctajG = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colNumeS = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colEmailS = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colPunctajS = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvGhiceste)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSarpe)).BeginInit();
             this.SuspendLayout();
@@ -68,6 +68,21 @@
             this.dgvGhiceste.Size = new System.Drawing.Size(366, 205);
             this.dgvGhiceste.TabIndex = 1;
             // 
+            // colNumeG
+            // 
+            this.colNumeG.HeaderText = "NumeUtilizator";
+            this.colNumeG.Name = "colNumeG";
+            // 
+            // colEmailG
+            // 
+            this.colEmailG.HeaderText = "EmailUtilizator";
+            this.colEmailG.Name = "colEmailG";
+            // 
+            // colPunctajG
+            // 
+            this.colPunctajG.HeaderText = "PunctajJoc";
+            this.colPunctajG.Name = "colPunctajG";
+            // 
             // dgvSarpe
             // 
             this.dgvSarpe.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
@@ -80,6 +95,21 @@
             this.dgvSarpe.Name = "dgvSarpe";
             this.dgvSarpe.Size = new System.Drawing.Size(349, 205);
             this.dgvSarpe.TabIndex = 2;
+            // 
+            // colNumeS
+            // 
+            this.colNumeS.HeaderText = "NumeUtilizator";
+            this.colNumeS.Name = "colNumeS";
+            // 
+            // colEmailS
+            // 
+            this.colEmailS.HeaderText = "EmailUtilizator";
+            this.colEmailS.Name = "colEmailS";
+            // 
+            // colPunctajS
+            // 
+            this.colPunctajS.HeaderText = "PunctajJoc";
+            this.colPunctajS.Name = "colPunctajS";
             // 
             // label1
             // 
@@ -112,6 +142,7 @@
             this.btnGhiceste.TabIndex = 5;
             this.btnGhiceste.Text = "Ghiceste";
             this.btnGhiceste.UseVisualStyleBackColor = false;
+            this.btnGhiceste.Click += new System.EventHandler(this.btnGhiceste_Click);
             // 
             // btnSarpe
             // 
@@ -124,36 +155,7 @@
             this.btnSarpe.TabIndex = 6;
             this.btnSarpe.Text = "SarpeEducativ";
             this.btnSarpe.UseVisualStyleBackColor = false;
-            // 
-            // colNumeG
-            // 
-            this.colNumeG.HeaderText = "NumeUtilizator";
-            this.colNumeG.Name = "colNumeG";
-            // 
-            // colEmailG
-            // 
-            this.colEmailG.HeaderText = "EmailUtilizator";
-            this.colEmailG.Name = "colEmailG";
-            // 
-            // colPunctajG
-            // 
-            this.colPunctajG.HeaderText = "PunctajJoc";
-            this.colPunctajG.Name = "colPunctajG";
-            // 
-            // colNumeS
-            // 
-            this.colNumeS.HeaderText = "NumeUtilizator";
-            this.colNumeS.Name = "colNumeS";
-            // 
-            // colEmailS
-            // 
-            this.colEmailS.HeaderText = "EmailUtilizator";
-            this.colEmailS.Name = "colEmailS";
-            // 
-            // colPunctajS
-            // 
-            this.colPunctajS.HeaderText = "PunctajJoc";
-            this.colPunctajS.Name = "colPunctajS";
+            this.btnSarpe.Click += new System.EventHandler(this.btnSarpe_Click);
             // 
             // AlegeJocForm
             // 
@@ -171,6 +173,7 @@
             this.Name = "AlegeJocForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AlegeJoc";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AlegeJocForm_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.dgvGhiceste)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSarpe)).EndInit();
             this.ResumeLayout(false);

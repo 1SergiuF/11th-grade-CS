@@ -13,22 +13,27 @@ namespace JocEducativ
 {
     public partial class AlegeJocForm : Form
     {
-        List<Tuple<string, string, int>> listGhiceste = new List<Tuple<string, string, int>>();
-        List<Tuple<string, string, int>> listSarpe = new List<Tuple<string, string, int>>();
+        public static string loggedEmail;
+        private List<Tuple<string, string, int>> listGhiceste = new List<Tuple<string, string, int>>();
+        private List<Tuple<string, string, int>> listSarpe = new List<Tuple<string, string, int>>();
         public AlegeJocForm(string email, string nume)
         {
             InitializeComponent();
+            loggedEmail = email;
             lblWelcome.Text = $"Bine ai venit, {nume}! ({email})";
 
-            PushToListGhiceste();
+            CreateTopScoreTables();
+        }
+
+        private void CreateTopScoreTables()
+        {
+            CreateTopScoreGhiceste();
+            CreateTopScoreSarpe();
+        }
+
+        private void CreateTopScoreSarpe()
+        {
             PushToListSarpe();
-
-            listGhiceste.Sort((t1, t2) => t2.Item3.CompareTo(t1.Item3));
-            for (int i = 0; i < 3; ++i)
-                this.dgvGhiceste.Rows.Add(listGhiceste[i].Item1,
-                    listGhiceste[i].Item2,
-                    listGhiceste[i].Item3);
-
             listSarpe.Sort((t1, t2) => t2.Item3.CompareTo(t1.Item3));
             for (int i = 0; i < 3; ++i)
                 this.dgvSarpe.Rows.Add(listSarpe[i].Item1,
@@ -36,6 +41,15 @@ namespace JocEducativ
                     listSarpe[i].Item3);
         }
 
+        private void CreateTopScoreGhiceste()
+        {
+            PushToListGhiceste();
+            listGhiceste.Sort((t1, t2) => t2.Item3.CompareTo(t1.Item3));
+            for (int i = 0; i < 3; ++i)
+                this.dgvGhiceste.Rows.Add(listGhiceste[i].Item1,
+                    listGhiceste[i].Item2,
+                    listGhiceste[i].Item3);
+        }
         private void PushToListSarpe()
         {
             var conn = new SqlConnection(JocEducativ.AutentificareForm.connStr);
@@ -78,6 +92,61 @@ namespace JocEducativ
             conn.Dispose();
             cmd.Dispose();
             rd.Close();
+        }
+
+        private void btnGhiceste_Click(object sender, EventArgs e)
+        {
+            this.Visible = false;
+            GhicesteForm ghicesteForm = new GhicesteForm();
+            ghicesteForm.ShowDialog();
+            this.Visible = true;
+
+            GhicesteForm.InsereazaRezultat(0, loggedEmail, GhicesteForm.punctaj);
+            GhicesteForm.punctaj = 100;
+
+            listGhiceste.Clear();
+            dgvGhiceste.Rows.Clear();
+            CreateTopScoreGhiceste();
+            DeleteLastRowRezultate();
+        }
+
+        private void DeleteLastRowRezultate()
+        {
+            var conn = new SqlConnection(JocEducativ.AutentificareForm.connStr);
+            conn.Open();
+            string query = "DELETE FROM Rezultate WHERE idRezultat = (SELECT MAX(idRezultat) FROM Rezultate)";
+
+            var cmd = new SqlCommand(query, conn);
+            cmd.ExecuteNonQuery();
+
+            conn.Close();
+            conn.Dispose();
+            cmd.Dispose();
+        }
+
+        private void btnSarpe_Click(object sender, EventArgs e)
+        {
+            this.Visible = false;
+            SarpeForm sarpeForm = new SarpeForm();
+            sarpeForm.ShowDialog();
+            this.Visible = true;
+
+            GhicesteForm.InsereazaRezultat(1, loggedEmail, SarpeForm.score);
+            SarpeForm.score = 0;
+
+            listSarpe.Clear();
+            dgvSarpe.Rows.Clear();
+            CreateTopScoreSarpe();
+            DeleteLastRowRezultate();
+        }
+
+        private void AlegeJocForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            DialogResult dialogResult = MessageBox.Show("Esti sigur ca vrei sa iesi din aplicatie ?", "Intrebare", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.No)
+            {
+                e.Cancel = true;
+            }
         }
     }
 }
