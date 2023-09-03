@@ -7,20 +7,34 @@ void Print3(Vector<int>& v);
 void Print4(Vector<int>& v);
 template<typename T> void Print5(Vector<T>& v);
 template<typename Type> void Print6(Type& v);
+void TestMyVector();
 
 int main()
 {
-	Vector<int> a{ 10, 20, 30, 40, 50 };
-	Print1(a);
-    Print2(a);
-    Print3(a);
-    Print4(a);
+	// Vector<int> a{ 10, 20, 30, 40, 50 };
+	// Print1(a);
+    // Print2(a);
+    // Print3(a);
+    // Print4(a);
 
-    Vector<std::string> b {"Sergiu", "Paul", "Emi"};
-    Print5(b);
-    Print6(b);
+    // Vector<std::string> b {"Sergiu", "Paul", "Emi"};
+    // Print5(b);
+    // Print6(b);
+
+    TestMyVector();
 
 	return 0;
+}
+
+void TestMyVector()
+{
+    Vector<int> v;
+    std::cout << v.capacity() << '\n';
+    for (int i = 1; i <= 33; ++i)
+    {
+        v.push_back(i);
+        std::cout << i << ' ' << v.capacity() << '\n';
+    }
 }
 
 void Print1(Vector<int> const& v)
