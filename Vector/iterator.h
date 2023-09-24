@@ -17,7 +17,7 @@ public:
 	// ca sa lucreze ca un smart-pointer
     // trebuie implementate operatiile *, ->, ++
 
-	// operator de dereferentiere
+	// operator de deferentiere
 	T operator *() const
 	{
 		return container[index];
